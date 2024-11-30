@@ -1,0 +1,7 @@
+__pycache__/
+migrations/
+images/
+admin/
+staitcfiles/
+db.sqlite3
+manage.py

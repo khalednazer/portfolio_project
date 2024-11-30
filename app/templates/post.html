@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block con %}
+<div class="border rounded col-10 border border-warning p-2" style="height: 650px; margin: 3px;">
+    <img src="{{poss.img.url}}" width="100%" height="300px" alt="">
+    <h2>{{ poss.handel }}</h2>
+    <p>{{ poss.body|safe }}</p>
+    {{ poss.media }}
+    <p>{{ poss.create }}</p>
+    
+    <hr>
+    {% for x in poss.tag.all %}
+    <p class="bg-warning w-25 rounded text-center xc">{{ x }}</p>
+    {% endfor %}
+    <div class="div">
+        <a href="{% url 'upp' poss.id %}"><button class="text-light bg-success rounded text-center ">updated</button></a>
+        <button class="bg-danger text-light rounded text-center delet">delete</button>
+    </div>
+    <div class="conf " style="display: none;">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h3>are you sure you want to delete this portfolio</h3>
+            <button class="bg-danger text-light rounded text-center "  name="yes">yes</button>
+        </form>
+        <button class="bg-success text-light rounded text-center no " name="no">No</button>
+    </div>
+    
+
+</div>
+
+<script>
+    let del = document.querySelector('.delet')
+    let conf = document.querySelector('.conf')
+    let divdel = document.querySelector('.div')
+    let No = document.querySelector('.no')
+    del.onclick=function(){
+        conf.style.display = 'block'
+        divdel.style.display = 'none'
+    }
+    No.onclick=function(){
+        divdel.style.display='block'
+        conf.style.display = 'none'
+    }
+</script>
+
+{% endblock con %}

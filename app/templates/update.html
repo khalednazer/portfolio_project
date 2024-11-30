@@ -1,0 +1,18 @@
+
+{% extends 'main.html' %}
+{% load static %}
+{% block con %}
+<div>
+    <form action="" method="POST" class="row g-3 d-flex flex-wrap m-3 bg-info w-50 rounded p-3">
+        {% csrf_token %}
+        <h1>hello from updated page</h1>
+        {{form}}
+        <input type="submit" value="update" class="bg-warning border m-3 w-50 rounded">
+    </form>
+</div>
+{% endblock %}
+
+
+
+
+

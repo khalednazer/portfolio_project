@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+
+
+
+{% block con %}
+<h1>
+    hello from form page
+</h1>
+<form method="POST" enctype="multipart/form-data" class="row g-3 d-flex flex-wrap m-3 bg-info w-50 rounded p-3">
+    {% csrf_token %}
+
+    {{ ff.as_p }}
+
+        <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
+
+{% endblock con %}

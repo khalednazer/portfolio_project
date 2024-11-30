@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+
+Lorem ieritatis expedita minus. Harum facere earum est rerum enim, ea omnis dolorum saepe! Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, minima qui exercitationem molestias dolor et! In possimus ea!
+
+{% block con %}
+<form action="" method="GET">
+
+    {{fil.form}}
+    <input type="submit" class="btn bg-warning" value="serch">
+</form>
+    <h1>hello from posts page</h1>  
+    <div class="cont d-flex flex-wrap m-3 w-100 ">
+        {% for post in data %}
+        <div class="border rounded col-3 border border-warning p-2" style="height: 500px; margin: 3px;">
+            <img src="{{post.img.url}}" width="100%" height="100px" alt="">
+            <h2>{{ post.handel }}</h2>
+            <p>{{ post.body|safe }}</p>
+            <a href="{% url 'postt' post.id %}">read more</a>
+            <hr>
+            {% for x in post.tag.all %}
+            <p class="bg-warning w-25 rounded text-center">{{ x }}</p>
+            {% endfor %}
+            
+
+        </div>
+        
+        {% endfor %}
+
+    </div>
+
+
+{% endblock con %}
